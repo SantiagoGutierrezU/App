@@ -1,0 +1,219 @@
+
+<style>
+  .phase-card {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    transition: border-color 0.2s;
+  }
+  .phase-card:hover { border-color: var(--color-border-primary); }
+  .phase-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    cursor: pointer;
+  }
+  .phase-badge {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .phase-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+  }
+  .phase-dur {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    margin-left: auto;
+  }
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .feature-item {
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-md);
+    padding: 8px 10px;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+  }
+  .feature-item i { font-size: 14px; margin-top: 1px; flex-shrink: 0; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-tertiary);
+    margin: 1.5rem 0 0.5rem;
+  }
+  .tech-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin: 3px;
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    color: var(--color-text-secondary);
+  }
+  .level-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .level-chip {
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .ask-btn {
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: var(--border-radius-md);
+    border: 0.5px solid var(--color-border-secondary);
+    background: transparent;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    transition: background 0.15s;
+  }
+  .ask-btn:hover { background: var(--color-background-secondary); }
+</style>
+
+<h2 class="sr-only">Plan de desarrollo para app de matemáticas para niños, estilo Duolingo</h2>
+
+<p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 1.25rem">Haz clic en cualquier fase para explorarla con Claude ↗</p>
+
+<!-- FASES DE DESARROLLO -->
+<div class="section-label">Fases de desarrollo</div>
+
+<!-- Fase 1 -->
+<div class="phase-card">
+  <div class="phase-header" onclick="sendPrompt('Cuéntame más sobre la Fase 1: Fundamentos y diseño de la app de matemáticas para niños')">
+    <span class="phase-badge" style="background:#E1F5EE;color:#0F6E56">Fase 1</span>
+    <span class="phase-title">Fundamentos y diseño</span>
+    <span class="phase-dur">~2 semanas</span>
+  </div>
+  <div class="feature-grid">
+    <div class="feature-item"><i class="ti ti-palette" aria-hidden="true"></i>Sistema de diseño: colores, tipografía, personaje mascota</div>
+    <div class="feature-item"><i class="ti ti-map" aria-hidden="true"></i>Mapa de niveles (mundo de aprendizaje)</div>
+    <div class="feature-item"><i class="ti ti-user-circle" aria-hidden="true"></i>Perfil del niño y sistema de avatares</div>
+    <div class="feature-item"><i class="ti ti-trophy" aria-hidden="true"></i>Sistema de recompensas y estrellas</div>
+  </div>
+</div>
+
+<!-- Fase 2 -->
+<div class="phase-card">
+  <div class="phase-header" onclick="sendPrompt('Cuéntame más sobre la Fase 2: Motor de ejercicios y animaciones de la app de matemáticas para niños')">
+    <span class="phase-badge" style="background:#E6F1FB;color:#185FA5">Fase 2</span>
+    <span class="phase-title">Motor de ejercicios y animaciones</span>
+    <span class="phase-dur">~3 semanas</span>
+  </div>
+  <div class="feature-grid">
+    <div class="feature-item"><i class="ti ti-apple" aria-hidden="true"></i>Animaciones visuales: manzanas, animales, objetos para contar</div>
+    <div class="feature-item"><i class="ti ti-calculator" aria-hidden="true"></i>Tipos: suma, resta, comparación, series numéricas</div>
+    <div class="feature-item"><i class="ti ti-wand" aria-hidden="true"></i>Retroalimentación animada (correcto/incorrecto)</div>
+    <div class="feature-item"><i class="ti ti-hand-click" aria-hidden="true"></i>Interacción táctil: arrastrar, tocar, contar</div>
+  </div>
+</div>
+
+<!-- Fase 3 -->
+<div class="phase-card">
+  <div class="phase-header" onclick="sendPrompt('Cuéntame más sobre la Fase 3: Progresión y gamificación de la app de matemáticas')">
+    <span class="phase-badge" style="background:#FAEEDA;color:#854F0B">Fase 3</span>
+    <span class="phase-title">Progresión y gamificación</span>
+    <span class="phase-dur">~2 semanas</span>
+  </div>
+  <div class="feature-grid">
+    <div class="feature-item"><i class="ti ti-flame" aria-hidden="true"></i>Racha diaria (streak) y recordatorios</div>
+    <div class="feature-item"><i class="ti ti-medal" aria-hidden="true"></i>Insignias y logros desbloqueables</div>
+    <div class="feature-item"><i class="ti ti-chart-line" aria-hidden="true"></i>Progreso visual por unidad</div>
+    <div class="feature-item"><i class="ti ti-lock-open" aria-hidden="true"></i>Desbloqueo de niveles y contenido</div>
+  </div>
+</div>
+
+<!-- Fase 4 -->
+<div class="phase-card">
+  <div class="phase-header" onclick="sendPrompt('Cuéntame más sobre la Fase 4: Panel de padres y pulido final de la app')">
+    <span class="phase-badge" style="background:#EEEDFE;color:#534AB7">Fase 4</span>
+    <span class="phase-title">Panel de padres y pulido</span>
+    <span class="phase-dur">~2 semanas</span>
+  </div>
+  <div class="feature-grid">
+    <div class="feature-item"><i class="ti ti-report" aria-hidden="true"></i>Reporte de progreso para padres</div>
+    <div class="feature-item"><i class="ti ti-clock" aria-hidden="true"></i>Control de tiempo de pantalla</div>
+    <div class="feature-item"><i class="ti ti-volume" aria-hidden="true"></i>Efectos de sonido y música adaptativa</div>
+    <div class="feature-item"><i class="ti ti-device-mobile" aria-hidden="true"></i>Optimización para tablet y móvil</div>
+  </div>
+</div>
+
+<!-- CONTENIDO CURRICULAR -->
+<div class="section-label">Contenido curricular (por grado)</div>
+<div style="background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1rem">
+  <div class="level-row">
+    <span class="level-chip" style="background:#E1F5EE;color:#0F6E56">1° — Contar y sumas básicas</span>
+    <span class="level-chip" style="background:#E6F1FB;color:#185FA5">2° — Suma y resta hasta 100</span>
+    <span class="level-chip" style="background:#FAEEDA;color:#854F0B">3° — Multiplicación básica</span>
+    <span class="level-chip" style="background:#EEEDFE;color:#534AB7">4° — División y fracciones</span>
+    <span class="level-chip" style="background:#FAECE7;color:#993C1D">5° — Operaciones mixtas</span>
+    <span class="level-chip" style="background:#FBEAF0;color:#993556">6° — Geometría y problemas</span>
+  </div>
+  <button class="ask-btn" onclick="sendPrompt('Dame el desglose detallado del contenido curricular para cada grado de primaria en la app de matemáticas')">
+    <i class="ti ti-list-details" aria-hidden="true"></i> Ver desglose detallado ↗
+  </button>
+</div>
+
+<!-- STACK TECNOLÓGICO -->
+<div class="section-label">Stack tecnológico recomendado</div>
+<div style="background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1rem">
+  <div style="margin-bottom:10px">
+    <span style="font-size:12px;color:var(--color-text-secondary);font-weight:500">Frontend / App</span><br>
+    <span class="tech-pill"><i class="ti ti-brand-react" aria-hidden="true"></i> React Native</span>
+    <span class="tech-pill"><i class="ti ti-wand" aria-hidden="true"></i> Framer Motion / Lottie</span>
+    <span class="tech-pill"><i class="ti ti-palette" aria-hidden="true"></i> Tailwind CSS</span>
+  </div>
+  <div style="margin-bottom:10px">
+    <span style="font-size:12px;color:var(--color-text-secondary);font-weight:500">Backend / Datos</span><br>
+    <span class="tech-pill"><i class="ti ti-server" aria-hidden="true"></i> Supabase (auth + DB)</span>
+    <span class="tech-pill"><i class="ti ti-code" aria-hidden="true"></i> Node.js / Express</span>
+    <span class="tech-pill"><i class="ti ti-database" aria-hidden="true"></i> PostgreSQL</span>
+  </div>
+  <div>
+    <span style="font-size:12px;color:var(--color-text-secondary);font-weight:500">Animaciones y sonido</span><br>
+    <span class="tech-pill"><i class="ti ti-brand-javascript" aria-hidden="true"></i> Lottie Files</span>
+    <span class="tech-pill"><i class="ti ti-music" aria-hidden="true"></i> Howler.js</span>
+    <span class="tech-pill"><i class="ti ti-cube" aria-hidden="true"></i> SVG animado</span>
+  </div>
+  <button class="ask-btn" onclick="sendPrompt('¿Me puedes explicar por qué recomiendas este stack tecnológico y qué alternativas existen?')">
+    <i class="ti ti-help-circle" aria-hidden="true"></i> ¿Por qué este stack? ↗
+  </button>
+</div>
+
+<!-- SIGUIENTE PASO -->
+<div style="background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:0.5rem">
+  <p style="font-size:13px;font-weight:500;color:var(--color-text-primary);margin:0 0 8px">¿Por dónde empezamos?</p>
+  <div style="display:flex;flex-wrap:wrap;gap:8px">
+    <button class="ask-btn" onclick="sendPrompt('Crea un prototipo de pantalla con animación de suma con manzanas para niños')">🍎 Prototipo: suma con manzanas ↗</button>
+    <button class="ask-btn" onclick="sendPrompt('Diseña el sistema de gamificación completo con estrellas, insignias y racha diaria para la app')">🏆 Sistema de gamificación ↗</button>
+    <button class="ask-btn" onclick="sendPrompt('Muéstrame cómo estructurar la base de datos para guardar el progreso de los niños')">🗄️ Estructura de base de datos ↗</button>
+  </div>
+</div>
