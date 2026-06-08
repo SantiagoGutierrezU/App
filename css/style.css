@@ -1219,3 +1219,13 @@ html, body {
   font-weight: 800;
   color: var(--text-light);
 }
+
+/* ── Adventure narrative ── */
+.world-lore {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-light);
+  font-style: italic;
+  margin-top: 2px;
+  display: block;
+}

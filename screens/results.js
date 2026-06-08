@@ -25,9 +25,9 @@ const ResultsScreen = {
     const world = CURRICULUM.getWorld(r.worldId);
     const level = CURRICULUM.getLevel(r.worldId, r.levelId);
     const messages = {
-      3: ['¡Perfecto! 🎉', '¡Increíble! 🌟', '¡Eres una estrella! ⭐'],
-      2: ['¡Muy bien! 💪', '¡Buen trabajo! 👍', '¡Casi perfecto! 🎯'],
-      1: ['¡Lo lograste! 🙌', '¡Sigue practicando! 📚', '¡Vas mejorando! 🚀'],
+      3: ['¡Reino liberado! 🎉', '¡Los monstruos huyen! 🌟', '¡Victoria total, héroe! ⭐'],
+      2: ['¡Batalla ganada! 💪', '¡Buen combate, guerrero! 🗡️', '¡El reino resiste! 🎯'],
+      1: ['¡Sobreviviste! 🙌', '¡Entrena más y vuelve! 📚', '¡Cada lucha te fortalece! 🚀'],
     };
     const msgList = messages[r.stars] || messages[1];
     const msg = msgList[Math.floor(Math.random() * msgList.length)];
@@ -49,29 +49,29 @@ const ResultsScreen = {
             <span class="star-item ${r.stars < 3 ? 'star-empty' : ''}" style="--si:2">⭐</span>
           </div>
           <div class="xp-earned-card">
-            <span class="xp-earned-label">XP ganados</span>
+            <span class="xp-earned-label">⚡ Poder ganado</span>
             <span class="xp-earned-num" id="xp-counter">0</span>
           </div>
           <div class="result-stats">
             <div class="stat-chip">
-              <span class="stat-icon">✓</span>
+              <span class="stat-icon">⚔️</span>
               <span class="stat-val">${8 - r.errors}</span>
-              <span class="stat-label">correctas</span>
+              <span class="stat-label">golpes certeros</span>
             </div>
             <div class="stat-chip">
-              <span class="stat-icon">✗</span>
+              <span class="stat-icon">🛡️</span>
               <span class="stat-val">${r.errors}</span>
-              <span class="stat-label">errores</span>
+              <span class="stat-label">golpes recibidos</span>
             </div>
             <div class="stat-chip">
-              <span class="stat-icon">⭐</span>
+              <span class="stat-icon">⚡</span>
               <span class="stat-val">${totalXP}</span>
-              <span class="stat-label">XP total</span>
+              <span class="stat-label">poder total</span>
             </div>
           </div>
           <div class="result-actions">
-            <button class="btn-secondary" id="retry-btn">🔄 Repetir</button>
-            <button class="btn-primary btn-big" id="continue-btn">Continuar →</button>
+            <button class="btn-secondary" id="retry-btn">⚔️ Volver a batallar</button>
+            <button class="btn-primary btn-big" id="continue-btn">Avanzar al reino →</button>
           </div>
         </div>
       </div>`;

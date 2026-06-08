@@ -1,31 +1,31 @@
 const LessonScreen = {
   PHRASES_CORRECT: [
-    '¡Muy bien! 🎉',
-    '¡Excelente! 🌟',
-    '¡Correcto! ¡Genial!',
-    '¡Eso es! 🔥',
-    '¡Súper! 💪',
-    '¡Increíble! ⭐',
-    '¡Lo sabías! 😄',
-    '¡Brillante! ✨',
+    '¡Golpe certero! ⚔️',
+    '¡El monstruo retrocede! 💥',
+    '¡Victoria! 🏆',
+    '¡Eso es, héroe! 🔥',
+    '¡Poder matemático! ✨',
+    '¡Ataque demoledor! ⭐',
+    '¡Sabías la respuesta! 😄',
+    '¡Magia matemática! 🪄',
   ],
   PHRASES_WRONG: [
-    '¡Tú puedes! 💪',
-    '¡Casi! Sigue intentando',
-    '¡No te rindas! 🚀',
-    '¡Vamos, tú puedes!',
-    '¡La próxima la tienes!',
-    '¡Sigue practicando! 📚',
-    '¡Tranquilo, aprenderás!',
+    '¡No te rindas, héroe! 💪',
+    '¡El monstruo te golpeó! Lucha',
+    '¡Reagrúpate y ataca! 🚀',
+    '¡Los Reinos te necesitan!',
+    '¡Aprende y vuelve más fuerte!',
+    '¡Entrena más, guerrero! 📚',
+    '¡Cada error te hace más fuerte!',
     '¡Ánimo, campeón! 🏆',
   ],
   PHRASES_THINKING: [
-    '¿Sabes la respuesta?',
-    '¡Piensa bien! 🤔',
-    '¡Tómate tu tiempo!',
-    '¡Tú puedes hacerlo!',
-    '¡Concéntrate! 🎯',
-    '¡Eres muy listo/a!',
+    '¿Conoces el poder correcto?',
+    '¡Usa tu magia matemática! 🤔',
+    '¡Calcula tu golpe!',
+    '¡Los Reinos confían en ti!',
+    '¡Enfoca tu poder! 🎯',
+    '¡Eres un héroe sabio!',
   ],
 
   state: {
@@ -355,11 +355,11 @@ const LessonScreen = {
     overlay.innerHTML = `
       <div class="exit-modal">
         <div class="exit-modal-pencil">${this.pencilSVG('crying')}</div>
-        <div class="exit-modal-title">¿Abandonar la lección?</div>
-        <div class="exit-modal-sub">¡Tu progreso en esta lección se perderá! 😢</div>
+        <div class="exit-modal-title">¿Abandonar la batalla?</div>
+        <div class="exit-modal-sub">¡Los monstruos tomarán el reino si huyes! 😢</div>
         <div class="exit-modal-btns">
-          <button class="exit-btn-stay" id="exit-stay">¡Me quedo!</button>
-          <button class="exit-btn-leave" id="exit-leave">Salir</button>
+          <button class="exit-btn-stay" id="exit-stay">¡Seguir luchando!</button>
+          <button class="exit-btn-leave" id="exit-leave">Huir</button>
         </div>
       </div>`;
 

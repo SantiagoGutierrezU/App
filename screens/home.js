@@ -167,13 +167,13 @@ const HomeScreen = {
       <div class="screen home-screen">
         <div class="onboarding-top">
           <div class="mascot-wrap mascot-happy" id="mascot">${this.pencilSVG('happy')}</div>
-          <h1 class="app-title">MathKids</h1>
-          <p class="app-subtitle">¡Aprende matemáticas jugando!</p>
+          <h1 class="app-title">Capitán Lápiz</h1>
+          <p class="app-subtitle">¡Los Reinos Matemáticos necesitan un héroe!</p>
         </div>
         <div class="onboarding-card">
-          <h2 class="card-title">¿Cómo te llamas?</h2>
-          <input type="text" id="name-input" class="name-input" placeholder="Escribe tu nombre..." maxlength="15" autocomplete="off"/>
-          <h3 class="card-subtitle">Elige tu avatar:</h3>
+          <h2 class="card-title">⚔️ ¿Cuál es tu nombre, héroe?</h2>
+          <input type="text" id="name-input" class="name-input" placeholder="Nombre del héroe..." maxlength="15" autocomplete="off"/>
+          <h3 class="card-subtitle">Elige tu compañero de batalla:</h3>
           <div class="avatar-grid">
             ${this.AVATARS.map((id) => `
               <button class="avatar-btn" data-avatar="${id}">
@@ -182,7 +182,7 @@ const HomeScreen = {
             `).join('')}
           </div>
           <button class="btn-primary btn-big" id="start-btn" disabled>
-            ¡Empezar! 🚀
+            ¡A la aventura! ⚔️
           </button>
         </div>
       </div>`;
@@ -211,7 +211,7 @@ const HomeScreen = {
         <div class="welcome-hero">
           <div class="mascot-wrap mascot-happy" id="mascot">${this.pencilSVG('happy')}</div>
           <div class="avatar-bubble">${this.avatarSVG(profile.avatar)}</div>
-          <h2 class="welcome-name">¡Hola, ${profile.name}!</h2>
+          <h2 class="welcome-name">¡Bienvenido, ${profile.name}!</h2>
         </div>
         <div class="xp-section">
           <div class="xp-label-row">
@@ -223,7 +223,7 @@ const HomeScreen = {
           </div>
         </div>
         <button class="btn-primary btn-big btn-pulse" id="play-btn">
-          ¡A jugar! 🎯
+          ¡Al combate! ⚔️
         </button>
         <div class="badges-row">
           ${allBadges.map(b => `

@@ -9,8 +9,8 @@ const MapScreen = {
       <div class="screen map-screen">
         <div class="map-header">
           <button class="btn-back" id="back-btn">←</button>
-          <span class="map-title">Mundos</span>
-          <div class="map-xp">⭐ ${xp} XP</div>
+          <span class="map-title">⚔️ Reinos</span>
+          <div class="map-xp">⚡ ${xp} Poder</div>
         </div>
         <div class="worlds-container">
           ${CURRICULUM.worlds.map(world => this.renderWorld(world, xp)).join('')}
@@ -26,7 +26,8 @@ const MapScreen = {
           <span class="world-emoji">${world.emoji}</span>
           <div class="world-info">
             <h3 class="world-name">${world.name}</h3>
-            ${locked ? `<span class="world-lock-msg">🔒 Necesitas ${world.xpRequired} XP</span>` : ''}
+            ${locked ? `<span class="world-lock-msg">🔒 Necesitas ${world.xpRequired} de poder</span>` : ''}
+            ${!locked && world.lore ? `<span class="world-lore">${world.lore}</span>` : ''}
           </div>
           ${locked ? '<span class="lock-icon">🔒</span>' : ''}
         </div>
