@@ -3,7 +3,8 @@ const Engine = {
     1: ['🍎', '🍊', '🍋', '🍇', '🍓', '🫐'],
     2: ['🎈', '🏀', '⚽', '🌟', '🦋', '🐠'],
     3: ['⭐', '💎', '🌸', '🍭', '🎯', '🪄'],
-    4: ['🔵', '🟡', '🔴', '🟢', '🟣', '🟠'],
+    4: ['🍕', '🧁', '🍩', '🍪', '🎂', '🍫'],
+    5: ['🔵', '🟡', '🔴', '🟢', '🟣', '🟠'],
   },
 
   rand(min, max) {
@@ -134,6 +135,46 @@ const Engine = {
     };
   },
 
+  makeDivision(config, emoji) {
+    const divisors = config.mixed
+      ? [2, 3, 4, 5, 10]
+      : (config.divisors || [config.divisor || 2]);
+    const divisor = divisors[this.rand(0, divisors.length - 1)];
+    const quotient = this.rand(1, 10);
+    const dividend = divisor * quotient;
+    const useVisual = divisor <= 5 && quotient <= 5 && Math.random() < 0.45;
+
+    if (useVisual) {
+      return {
+        type: 'visual_div',
+        emoji, groups: divisor, perGroup: quotient,
+        question: `${dividend} ${emoji} repartidos en ${divisor} grupos iguales.\n¿Cuántos hay en cada grupo?`,
+        answer: quotient,
+        options: this.makeWrongOptions(quotient, 3, 0, 20)
+      };
+    }
+    return {
+      type: 'multiple_choice',
+      question: `${dividend} ÷ ${divisor} = ?`,
+      answer: quotient,
+      options: this.makeWrongOptions(quotient, 3, 0, 20)
+    };
+  },
+
+  makeDivisionFill(config) {
+    const maxD = config.maxDivisor || 5;
+    const divisor  = this.rand(2, maxD);
+    const quotient = this.rand(1, 10);
+    const dividend = divisor * quotient;
+    const r = Math.random();
+    if (r < 0.33) {
+      return { type: 'fill_blank', question: `${dividend} ÷ ${divisor} = ___`, answer: quotient };
+    } else if (r < 0.66) {
+      return { type: 'fill_blank', question: `${dividend} ÷ ___ = ${quotient}`, answer: divisor };
+    }
+    return { type: 'fill_blank', question: `___ ÷ ${divisor} = ${quotient}`, answer: dividend };
+  },
+
   makeSequence(config) {
     let step;
     if (config.mixed) {
@@ -176,6 +217,8 @@ const Engine = {
       case 'subtraction': return this.makeSubtraction(levelConfig, emoji);
       case 'subtraction_fill': return this.makeSubtractionFill(levelConfig);
       case 'multiplication': return this.makeMultiplication(levelConfig, emoji);
+      case 'division':       return this.makeDivision(levelConfig, emoji);
+      case 'division_fill':  return this.makeDivisionFill(levelConfig);
       case 'sequence': return this.makeSequence(levelConfig);
       case 'ordering': return this.makeOrdering(levelConfig);
       default: return this.makeAddition(levelConfig, emoji);

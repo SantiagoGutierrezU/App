@@ -194,7 +194,7 @@ const LessonScreen = {
 
   buildQuestionHTML(q) {
     let visualHTML = '';
-    if (q.type === 'visual_add' || q.type === 'visual_sub' || q.type === 'visual_mul') {
+    if (['visual_add','visual_sub','visual_mul','visual_div'].includes(q.type)) {
       visualHTML = `<div class="visual-area" id="visual-area"></div>`;
     }
     const questionText = q.question.replace(/\n/g, '<br>');
@@ -213,6 +213,7 @@ const LessonScreen = {
     if (q.type === 'visual_add') Animations.renderVisualAdd(va, q.emoji, q.a, q.b);
     else if (q.type === 'visual_sub') Animations.renderVisualSub(va, q.emoji, q.total, q.remove);
     else if (q.type === 'visual_mul') Animations.renderVisualMul(va, q.emoji, q.groups, q.perGroup);
+    else if (q.type === 'visual_div') Animations.renderVisualDiv(va, q.emoji, q.groups, q.perGroup);
   },
 
   setupOptions(footer, q) {

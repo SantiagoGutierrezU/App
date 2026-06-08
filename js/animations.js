@@ -67,6 +67,23 @@ const Animations = {
     `;
   },
 
+  renderVisualDiv(container, emoji, groups, perGroup) {
+    container.innerHTML = `
+      <div class="div-groups">
+        ${Array.from({ length: groups }, (_, g) => `
+          <div class="div-group" style="--g:${g}">
+            <div class="div-plate">
+              ${Array.from({ length: perGroup }, (_, i) =>
+                `<span class="fruit-item" style="--i:${g * perGroup + i}">${emoji}</span>`
+              ).join('')}
+            </div>
+            <div class="div-plate-label">${g + 1}</div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  },
+
   spawnConfetti(container) {
     const colors = ['#FF6B6B', '#4ECDC4', '#FFD93D', '#C77DFF', '#58CC02', '#FF9600'];
     const shapes = ['●', '■', '▲', '★', '♦'];

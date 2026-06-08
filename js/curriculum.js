@@ -50,6 +50,22 @@ const CURRICULUM = {
     },
     {
       id: 4,
+      name: 'Divisiones',
+      emoji: '➗',
+      color: '#06D6A0',
+      darkColor: '#05A87D',
+      lightColor: '#F0FFF8',
+      xpRequired: 200,
+      levels: [
+        { id: 1, name: 'Dividir entre 2',       type: 'division',      divisor: 2 },
+        { id: 2, name: 'Dividir entre 3 y 4',   type: 'division',      divisors: [3, 4] },
+        { id: 3, name: 'Dividir entre 5 y 10',  type: 'division',      divisors: [5, 10] },
+        { id: 4, name: 'Completa la división',  type: 'division_fill', maxDivisor: 5 },
+        { id: 5, name: '¡Maestro divisor!',     type: 'division',      mixed: true },
+      ]
+    },
+    {
+      id: 5,
       name: 'Secuencias',
       emoji: '🔢',
       color: '#C77DFF',
