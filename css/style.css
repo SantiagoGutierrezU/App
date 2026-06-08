@@ -292,15 +292,16 @@ html, body {
   position: relative;
 }
 .avatar-bubble {
-  font-size: 48px;
   background: white;
   border-radius: 50%;
-  width: 76px; height: 76px;
+  width: 80px; height: 80px;
   display: flex; align-items: center; justify-content: center;
   box-shadow: var(--shadow-lg);
   margin-top: -12px;
   position: relative;
   z-index: 1;
+  overflow: hidden;
+  padding: 6px;
 }
 .welcome-name {
   font-size: 26px;
@@ -425,17 +426,22 @@ html, body {
   background: #F8F8F8;
   border: 3px solid var(--border);
   border-radius: var(--radius);
-  padding: 12px;
+  padding: 10px;
   cursor: pointer;
   transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .avatar-btn.selected {
   border-color: var(--blue);
   background: #E8F5FF;
-  transform: scale(1.05);
+  transform: scale(1.07);
+  box-shadow: 0 4px 16px rgba(28,176,246,0.25);
 }
-.avatar-btn:hover { background: #F0F0F0; }
-.avatar-emoji { font-size: 36px; display: block; text-align: center; }
+.avatar-btn:active { transform: scale(0.95); }
+.avatar-svg-wrap svg { width: 56px; height: 56px; display: block; }
+.avatar-bubble svg  { width: 60px; height: 60px; display: block; }
 
 /* ── MAP SCREEN ── */
 .map-screen {
