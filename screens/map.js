@@ -1,7 +1,9 @@
+const DEV_UNLOCK_ALL = true; // 🔧 Cambiar a false para volver al comportamiento normal
+
 const MapScreen = {
   render() {
     const profile = Storage.getProfile();
-    const xp = profile ? (profile.xp || 0) : 0;
+    const xp = DEV_UNLOCK_ALL ? 99999 : (profile ? (profile.xp || 0) : 0);
 
     return `
       <div class="screen map-screen">
@@ -39,7 +41,7 @@ const MapScreen = {
   renderLevelNode(world, level, idx, userXP) {
     const prog = Storage.getLevelProgress(world.id, level.id);
     const prevCompleted = idx === 0 || Storage.getLevelProgress(world.id, world.levels[idx - 1].id).completed;
-    const isLocked = !prevCompleted && idx !== 0;
+    const isLocked = DEV_UNLOCK_ALL ? false : (!prevCompleted && idx !== 0);
     const isCompleted = prog.completed;
     const isAvailable = !isLocked;
 
