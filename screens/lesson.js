@@ -46,19 +46,41 @@ const LessonScreen = {
       thinking:'M 23 90 Q 30 92 37 90',
       crying:  'M 22 94 Q 30 86 38 94',
     };
-    const cryingExtras = mood === 'crying' ? `
-      <ellipse cx="25" cy="75" rx="3" ry="4.5" fill="#333"/>
-      <ellipse cx="37" cy="75" rx="3" ry="4.5" fill="#333"/>
-      <ellipse cx="25" cy="82" rx="2.5" ry="4"   fill="#74C8FF" opacity="0.85"/>
-      <ellipse cx="37" cy="82" rx="2.5" ry="4"   fill="#74C8FF" opacity="0.85"/>
-      <ellipse cx="25" cy="87" rx="1.8" ry="2.8" fill="#4EB3FF" opacity="0.7"/>
-      <ellipse cx="37" cy="87" rx="1.8" ry="2.8" fill="#4EB3FF" opacity="0.7"/>
+    // Crying: huge watery eyes (Puss-in-Boots style) replacing normal eye circles
+    const eyeWhites = mood === 'crying'
+      ? `<circle cx="22" cy="72" r="11" fill="white"/>
+         <circle cx="38" cy="72" r="11" fill="white"/>`
+      : `<circle cx="24" cy="72" r="8"  fill="white"/>
+         <circle cx="36" cy="72" r="8"  fill="white"/>`;
+
+    const eyeDetails = mood === 'crying' ? `
+      <!-- Big pupils -->
+      <circle cx="22" cy="73" r="8"   fill="#1a1a1a"/>
+      <circle cx="38" cy="73" r="8"   fill="#1a1a1a"/>
+      <!-- Iris colour ring -->
+      <circle cx="22" cy="73" r="8.5" fill="none" stroke="#5C3A1E" stroke-width="1.2" opacity="0.5"/>
+      <circle cx="38" cy="73" r="8.5" fill="none" stroke="#5C3A1E" stroke-width="1.2" opacity="0.5"/>
+      <!-- Large shine -->
+      <circle cx="18" cy="68" r="3.5" fill="white" opacity="0.95"/>
+      <circle cx="34" cy="68" r="3.5" fill="white" opacity="0.95"/>
+      <!-- Small shine -->
+      <circle cx="26" cy="70" r="1.5" fill="white" opacity="0.75"/>
+      <circle cx="42" cy="70" r="1.5" fill="white" opacity="0.75"/>
+      <!-- Watery film at bottom of eye -->
+      <ellipse cx="22" cy="81" rx="9" ry="2.5" fill="#AEE4FF" opacity="0.55"/>
+      <ellipse cx="38" cy="81" rx="9" ry="2.5" fill="#AEE4FF" opacity="0.55"/>
+      <!-- Tear drops falling -->
+      <ellipse cx="17" cy="87" rx="2"   ry="3.5" fill="#74C8FF" opacity="0.9"/>
+      <ellipse cx="17" cy="93" rx="1.5" ry="2.5" fill="#4EB3FF" opacity="0.7"/>
+      <ellipse cx="43" cy="87" rx="2"   ry="3.5" fill="#74C8FF" opacity="0.9"/>
+      <ellipse cx="43" cy="93" rx="1.5" ry="2.5" fill="#4EB3FF" opacity="0.7"/>
     ` : `
       <circle cx="25" cy="73" r="4.5" fill="#333"/>
       <circle cx="37" cy="73" r="4.5" fill="#333"/>
       <circle cx="27" cy="71" r="1.8" fill="white"/>
       <circle cx="39" cy="71" r="1.8" fill="white"/>
     `;
+
     return `
       <svg class="pencil-svg pencil-sm" viewBox="0 0 60 170" xmlns="http://www.w3.org/2000/svg">
         <rect x="18" y="0" width="24" height="20" rx="10" fill="#FF9EB5"/>
@@ -67,9 +89,8 @@ const LessonScreen = {
         <rect x="16" y="24" width="9" height="112" rx="4" fill="#FFE566"/>
         <polygon points="30,136 16,158 44,158" fill="#F4A460"/>
         <polygon points="30,158 26,168 34,168" fill="#555"/>
-        <circle cx="24" cy="72" r="8" fill="white"/>
-        <circle cx="36" cy="72" r="8" fill="white"/>
-        ${cryingExtras}
+        ${eyeWhites}
+        ${eyeDetails}
         <circle cx="19" cy="84" r="5" fill="#FFB3C6" opacity="0.65"/>
         <circle cx="41" cy="84" r="5" fill="#FFB3C6" opacity="0.65"/>
         <path d="${mouths[mood] || mouths.happy}" stroke="#333" stroke-width="2.8" fill="none" stroke-linecap="round"/>
