@@ -173,7 +173,7 @@ html, body {
 
 .mascot-corner {
   position: absolute;
-  bottom: 116px;
+  bottom: 145px;
   width: 160px;
   z-index: 5;
   display: flex;
