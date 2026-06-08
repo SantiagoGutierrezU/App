@@ -38,4 +38,7 @@ const App = {
   }
 };
 
-document.addEventListener('DOMContentLoaded', () => App.init());
+document.addEventListener('DOMContentLoaded', async () => {
+  await Storage.initSupabase();
+  App.init();
+});
