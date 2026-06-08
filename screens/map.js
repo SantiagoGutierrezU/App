@@ -1,4 +1,4 @@
-const DEV_UNLOCK_ALL = true; // 🔧 Cambiar a false para volver al comportamiento normal
+const DEV_UNLOCK_ALL = false;
 
 const MapScreen = {
   render() {
