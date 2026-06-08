@@ -44,7 +44,21 @@ const LessonScreen = {
       excited: 'M 20 86 Q 30 98 40 86',
       sad:     'M 22 94 Q 30 86 38 94',
       thinking:'M 23 90 Q 30 92 37 90',
+      crying:  'M 22 94 Q 30 86 38 94',
     };
+    const cryingExtras = mood === 'crying' ? `
+      <ellipse cx="25" cy="75" rx="3" ry="4.5" fill="#333"/>
+      <ellipse cx="37" cy="75" rx="3" ry="4.5" fill="#333"/>
+      <ellipse cx="25" cy="82" rx="2.5" ry="4"   fill="#74C8FF" opacity="0.85"/>
+      <ellipse cx="37" cy="82" rx="2.5" ry="4"   fill="#74C8FF" opacity="0.85"/>
+      <ellipse cx="25" cy="87" rx="1.8" ry="2.8" fill="#4EB3FF" opacity="0.7"/>
+      <ellipse cx="37" cy="87" rx="1.8" ry="2.8" fill="#4EB3FF" opacity="0.7"/>
+    ` : `
+      <circle cx="25" cy="73" r="4.5" fill="#333"/>
+      <circle cx="37" cy="73" r="4.5" fill="#333"/>
+      <circle cx="27" cy="71" r="1.8" fill="white"/>
+      <circle cx="39" cy="71" r="1.8" fill="white"/>
+    `;
     return `
       <svg class="pencil-svg pencil-sm" viewBox="0 0 60 170" xmlns="http://www.w3.org/2000/svg">
         <rect x="18" y="0" width="24" height="20" rx="10" fill="#FF9EB5"/>
@@ -55,10 +69,7 @@ const LessonScreen = {
         <polygon points="30,158 26,168 34,168" fill="#555"/>
         <circle cx="24" cy="72" r="8" fill="white"/>
         <circle cx="36" cy="72" r="8" fill="white"/>
-        <circle cx="25" cy="73" r="4.5" fill="#333"/>
-        <circle cx="37" cy="73" r="4.5" fill="#333"/>
-        <circle cx="27" cy="71" r="1.8" fill="white"/>
-        <circle cx="39" cy="71" r="1.8" fill="white"/>
+        ${cryingExtras}
         <circle cx="19" cy="84" r="5" fill="#FFB3C6" opacity="0.65"/>
         <circle cx="41" cy="84" r="5" fill="#FFB3C6" opacity="0.65"/>
         <path d="${mouths[mood] || mouths.happy}" stroke="#333" stroke-width="2.8" fill="none" stroke-linecap="round"/>
@@ -99,7 +110,7 @@ const LessonScreen = {
     this.state.mascotSide = 'right';
 
     document.getElementById('close-btn').addEventListener('click', () => {
-      if (confirm('¿Salir de la lección?')) App.navigate('map');
+      this.showExitModal();
     });
 
     this.renderQuestion();
@@ -310,6 +321,35 @@ const LessonScreen = {
     } else {
       this.renderQuestion();
     }
+  },
+
+  showExitModal() {
+    // Remove any existing modal
+    document.getElementById('exit-modal-overlay')?.remove();
+
+    const overlay = document.createElement('div');
+    overlay.className = 'exit-modal-overlay';
+    overlay.id = 'exit-modal-overlay';
+    overlay.innerHTML = `
+      <div class="exit-modal">
+        <div class="exit-modal-pencil">${this.pencilSVG('crying')}</div>
+        <div class="exit-modal-title">¿Abandonar la lección?</div>
+        <div class="exit-modal-sub">¡Tu progreso en esta lección se perderá! 😢</div>
+        <div class="exit-modal-btns">
+          <button class="exit-btn-stay" id="exit-stay">¡Me quedo!</button>
+          <button class="exit-btn-leave" id="exit-leave">Salir</button>
+        </div>
+      </div>`;
+
+    document.body.appendChild(overlay);
+
+    document.getElementById('exit-stay').addEventListener('click', () => overlay.remove());
+    document.getElementById('exit-leave').addEventListener('click', () => {
+      overlay.remove();
+      App.navigate('map');
+    });
+    // Tap outside to cancel
+    overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
   },
 
   finishLesson() {

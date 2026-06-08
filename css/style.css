@@ -1108,3 +1108,74 @@ html, body {
   .lesson-footer { border-radius: 0 0 0 0; }
   .feedback-bar  { border-radius: 0; }
 }
+
+/* ── Exit Confirm Modal ── */
+.exit-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInOverlay 0.2s ease;
+}
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.exit-modal {
+  background: white;
+  border-radius: 28px;
+  padding: 32px 28px 24px;
+  max-width: 320px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  animation: popInModal 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes popInModal {
+  from { opacity: 0; transform: scale(0.7); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.exit-modal-pencil {
+  margin: 0 auto 12px;
+  width: 64px;
+}
+.exit-modal-pencil svg { width: 64px; height: auto; }
+.exit-modal-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.exit-modal-sub {
+  font-size: 15px;
+  color: var(--text-light);
+  margin-bottom: 24px;
+}
+.exit-modal-btns {
+  display: flex;
+  gap: 12px;
+}
+.exit-modal-btns button {
+  flex: 1;
+  padding: 14px;
+  border-radius: 16px;
+  border: none;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.1s, opacity 0.1s;
+}
+.exit-modal-btns button:active { transform: scale(0.96); }
+.exit-btn-stay {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 4px 0 var(--primary-dark);
+}
+.exit-btn-leave {
+  background: #F0F0F0;
+  color: var(--text-light);
+}
