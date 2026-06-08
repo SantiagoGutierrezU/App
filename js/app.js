@@ -39,6 +39,7 @@ const App = {
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
-  await Storage.initSupabase();
+  const timeout = new Promise(r => setTimeout(r, 3000));
+  await Promise.race([Storage.initSupabase(), timeout]).catch(() => {});
   App.init();
 });
